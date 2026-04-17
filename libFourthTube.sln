@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.33026.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libFourthTube", "libFourthTube\libFourthTube.vcxproj", "{9BA6B150-DD19-4285-A69E-FD773A026CAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|PSVita = Debug|PSVita
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|PSVita = Release|PSVita
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|PSVita.ActiveCfg = Debug|PSVita
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|PSVita.Build.0 = Debug|PSVita
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|x64.ActiveCfg = Debug|x64
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|x64.Build.0 = Debug|x64
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Debug|x86.Build.0 = Debug|Win32
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|PSVita.ActiveCfg = Release|PSVita
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|PSVita.Build.0 = Release|PSVita
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|x64.ActiveCfg = Release|x64
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|x64.Build.0 = Release|x64
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|x86.ActiveCfg = Release|Win32
+		{9BA6B150-DD19-4285-A69E-FD773A026CAB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DF43385-153A-42F3-A571-DE7A8DDE1A1A}
+	EndGlobalSection
+EndGlobal
