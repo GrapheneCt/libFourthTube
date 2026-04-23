@@ -4,9 +4,13 @@
 
 #include "ftube.h"
 
+//#define FT_DUMP_PRETTY_RESPONSE
+//#define FT_DUMP_BUFFER_USAGE
+
+// ----- Platform-specific definitions start -----
 #ifdef FT_BUILD
 #define FT_EXPORT __declspec(dllexport)
-#ifdef __SNC__
+#if defined(__SNC__)
 #include <kernel.h>
 #define ft_snprintf sceClibSnprintf
 #define ft_strnlen sceClibStrnlen
@@ -21,7 +25,7 @@
 #else
 #define ft_printf
 #endif
-#else
+#elif defined(WIN32)
 #include <string.h>
 #define ft_snprintf snprintf
 #define ft_strnlen strnlen
@@ -33,16 +37,21 @@
 #ifdef _DEBUG
 #define ft_printf printf
 #else
-#define ft_printf printf
+#define ft_printf
 #endif
 #endif
 #endif
+// ----- Platform-specific definitions end -----
 
-#define ARDUINOJSON_DEFAULT_NESTING_LIMIT 50
+#define ARDUINOJSON_DEFAULT_NESTING_LIMIT	50
 #include "ArduinoJson.hpp"
 #include "base64.h"
 
-#define FT_CONTEXT_MAX_BUFFERS	2
+#define FT_VIDEO_BUFFER_SIZE_COEFF			0.4f
+#define FT_COMMENTS_BUFFER_SIZE_COEFF		0.7f
+#define FT_LIVE_COMMENTS_BUFFER_SIZE_COEFF	0.45f
+
+#define FT_CONTEXT_MAX_BUFFERS				2
 
 int32_t _ftSetRegion(FTRegion region);
 

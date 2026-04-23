@@ -11,14 +11,16 @@
 #define API_LIVE_COMMENTS			API_ENDPOINT "live_chat/get_live_chat?key=" API_KEY "&prettyPrint=false"
 //#define API_VISITOR_DATA			"https://www.youtube.com/sw.js_data"
 
-#define POST_CONTEXT_SEARCH			"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20250821.07.00\"}}, \"params\": \"%s\", \"query\": \"%s\"}"
-#define POST_CONTEXT_SEARCH_CONT	"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20250821.07.00\"}}, \"continuation\": \"%s\"}"
+// Search and Navigation (MWEB)
+#define POST_CONTEXT_SEARCH			"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20260415.01.00\"}}, \"params\": \"%s\", \"query\": \"%s\"}"
+#define POST_CONTEXT_SEARCH_CONT	"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20260415.01.00\"}}, \"continuation\": \"%s\"}"
+#define POST_CONTEXT_COMMENTS_NEXT	"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20240315.00.00\", \"utcOffsetMinutes\": 0}}, \"continuation\": \"%s\"}"
 
-#define POST_CONTEXT_COMMENTS_NEXT	"{\"context\": {\"client\": {\"hl\": \"%s\", \"gl\": \"%s\", \"clientName\": \"MWEB\", \"clientVersion\": \"2.20250821.07.00\", \"utcOffsetMinutes\": 0}, \"request\": {}, \"user\": {}}, \"continuation\": \"%s\"}"
-#define POST_CONTEXT_COMMENTS		"{\"videoId\": \"%s\", \"context\": {\"client\": {\"hl\": \"%s\",\"gl\": \"%s\",\"clientName\": \"IOS\",\"clientVersion\": \"20.10.4\",\"deviceMake\": \"Apple\",\"deviceModel\": \"iPhone16, 2\",\"osName\": \"iPhone\",\"userAgent\": \"com.google.ios.youtube/20.10.4 (iPhone16,2; U; CPU iOS 18_3_2 like Mac OS X;)\", \"osVersion\": \"18.3.2.22D82\", \"visitorData\": \"%s\"}}, \"playbackContext\": {\"contentPlaybackContext\": {\"signatureTimestamp\": \"0\"}}}"
-#define POST_CONTEXT_VIDEO			"{\"videoId\": \"%s\", \"context\": {\"client\": {\"hl\": \"%s\",\"gl\": \"%s\",\"clientName\": \"ANDROID\",\"clientVersion\": \"19.35.36\",\"userAgent\": \"Mozilla/5.0 (iPad; CPU OS 16_7_10 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1,gzip(gfe)\",\"visitorData\": \"%s\"}}, \"playbackContext\": {\"contentPlaybackContext\": {\"signatureTimestamp\": \"0\"}}}"
+// Playback and Comments (ANDROID_VR)
+#define POST_CONTEXT_COMMENTS		"{\"videoId\": \"%s\", \"context\": {\"client\": {\"hl\": \"%s\",\"gl\": \"%s\",\"clientName\": \"ANDROID_VR\",\"clientVersion\": \"1.50.45\",\"userAgent\": \"com.google.android.apps.youtube.vr.oculus/1.50.45 (Linux; U; Android 12)\",\"visitorData\": \"%s\"}}}"
+#define POST_CONTEXT_VIDEO			"{\"videoId\": \"%s\", \"context\": {\"client\": {\"hl\": \"%s\",\"gl\": \"%s\",\"clientName\": \"ANDROID_VR\",\"clientVersion\": \"1.50.45\",\"userAgent\": \"com.google.android.apps.youtube.vr.oculus/1.50.45 (Linux; U; Android 12)\",\"visitorData\": \"%s\"}}}"
 
-char SEARCH_JSON_FILTER[] = "{\"estimatedResults\":true,\"continuationContents\":{\"sectionListContinuation\":{\"contents\":true,\"continuations\":true}},\"contents\":{\"sectionListRenderer\":{\"contents\":true,\"continuations\":true}}}";
+char SEARCH_JSON_FILTER[] =			"{\"estimatedResults\":true,\"continuationContents\":{\"sectionListContinuation\":{\"contents\":true,\"continuations\":true}},\"contents\":{\"sectionListRenderer\":{\"contents\":true,\"continuations\":true}}}";
 char VIDEO_JSON_FILTER[] =			"{\"playabilityStatus\":{\"status\":true},\"streamingData\":{\"dashManifestUrl\":true,\"hlsManifestUrl\":true,\"expiresInSeconds\":true,\"formats\":[{\"itag\":true,\"url\":true,\"mimeType\":true,\"bitrate\":true,\"width\":true,\"height\":true,\"lastModified\":true,\"contentLength\":true,\"quality\":true,\"fps\":true,\"qualityLabel\":true,\"projectionType\":true,\"averageBitrate\":true,\"audioQuality\":true,\"approxDurationMs\":true,\"audioSampleRate\":true,\"audioChannels\":true,\"qualityOrdinal\":true,\"audioTrack\":true}],\"adaptiveFormats\":[{\"itag\":true,\"url\":true,\"mimeType\":true,\"bitrate\":true,\"width\":true,\"height\":true,\"initRange\":{\"start\":true,\"end\":true},\"indexRange\":{\"start\":true,\"end\":true},\"lastModified\":true,\"contentLength\":true,\"quality\":true,\"fps\":true,\"qualityLabel\":true,\"projectionType\":true,\"averageBitrate\":true,\"approxDurationMs\":true,\"qualityOrdinal\":true,\"audioTrack\":true,\"audioQuality\":true,\"audioSampleRate\":true,\"audioChannels\":true,\"isDrc\":true}]},\"videoDetails\":{\"videoId\":true,\"title\":true,\"lengthSeconds\":true,\"channelId\":true,\"shortDescription\":true,\"thumbnail\":{\"thumbnails\":[{\"url\":true,\"width\":true,\"height\":true}]},\"viewCount\":true,\"author\":true,\"isUnpluggedCorpus\":true,\"isLiveContent\":true},\"playerConfig\":{\"exoPlayerConfig\":{\"useExoPlayer\":true,\"useAdaptiveBitrate\":true,\"maxInitialByteRate\":true,\"minDurationForQualityIncreaseMs\":true,\"maxDurationForQualityDecreaseMs\":true,\"minDurationToRetainAfterDiscardMs\":true,\"lowWatermarkMs\":true,\"highWatermarkMs\":true,\"lowPoolLoad\":true,\"highPoolLoad\":true,\"sufficientBandwidthOverhead\":true,\"bufferChunkSizeKb\":true,\"httpConnectTimeoutMs\":true,\"httpReadTimeoutMs\":true,\"numAudioSegmentsPerFetch\":true,\"numVideoSegmentsPerFetch\":true,\"minDurationForPlaybackStartMs\":true,\"enableExoplayerReuse\":true,\"useRadioTypeForInitialQualitySelection\":true,\"blacklistFormatOnError\":true,\"enableBandaidHttpDataSource\":true,\"httpLoadTimeoutMs\":true,\"canPlayHdDrm\":true,\"videoBufferSegmentCount\":true,\"audioBufferSegmentCount\":true,\"useAbruptSplicing\":true,\"minRetryCount\":true,\"minChunksNeededToPreferOffline\":true,\"secondsToMaxAggressiveness\":true,\"enableSurfaceviewResizeWorkaround\":true,\"enableVp9IfThresholdsPass\":true,\"matchQualityToViewportOnUnfullscreen\":true,\"lowAudioQualityConnTypes\":[true],\"useDashForLiveStreams\":true,\"enableLibvpxVideoTrackRenderer\":true,\"lowAudioQualityBandwidthThresholdBps\":true,\"enableVariableSpeedPlayback\":true,\"preferOnesieBufferedFormat\":true,\"minimumBandwidthSampleBytes\":true,\"useDashForOtfAndCompletedLiveStreams\":true,\"disableCacheAwareVideoFormatEvaluation\":true,\"useLiveDvrForDashLiveStreams\":true,\"cronetResetTimeoutOnRedirects\":true,\"emitVideoDecoderChangeEvents\":true,\"onesieVideoBufferLoadTimeoutMs\":true,\"onesieVideoBufferReadTimeoutMs\":true,\"libvpxEnableGl\":true,\"enableVp9EncryptedIfThresholdsPass\":true,\"enableOpus\":true,\"usePredictedBuffer\":true,\"maxReadAheadMediaTimeMs\":true,\"useMediaTimeCappedLoadControl\":true,\"allowCacheOverrideToLowerQualitiesWithinRange\":true,\"allowDroppingUndecodedFrames\":true,\"minDurationForPlaybackRestartMs\":true,\"serverProvidedBandwidthHeader\":true,\"liveOnlyPegStrategy\":true,\"enableRedirectorHostFallback\":true,\"enableHighlyAvailableFormatFallbackOnPcr\":true,\"recordTrackRendererTimingEvents\":true,\"minErrorsForRedirectorHostFallback\":true,\"enableVp9IfInHardware\":true,\"enableVp9EncryptedIfInHardware\":true,\"useOpusMedAsLowQualityAudio\":true,\"minErrorsForPcrFallback\":true,\"useStickyRedirectHttpDataSource\":true,\"onlyVideoBandwidth\":true,\"useRedirectorOnNetworkChange\":true,\"enableMaxReadaheadAbrThreshold\":true,\"cacheCheckDirectoryWritabilityOnce\":true,\"predictorType\":true,\"slidingPercentile\":true,\"slidingWindowSize\":true,\"maxFrameDropIntervalMs\":true,\"ignoreLoadTimeoutForFallback\":true,\"serverBweMultiplier\":true,\"drmMaxKeyfetchDelayMs\":true,\"maxResolutionForWhiteNoise\":true,\"whiteNoiseRenderEffectMode\":true,\"enableLibvpxHdr\":true,\"enableCacheAwareStreamSelection\":true,\"useExoCronetDataSource\":true,\"whiteNoiseScale\":true,\"whiteNoiseOffset\":true,\"preventVideoFrameLaggingWithLibvpx\":true,\"enableMediaCodecHdr\":true,\"enableMediaCodecSwHdr\":true,\"liveOnlyWindowChunks\":true,\"bearerMinDurationToRetainAfterDiscardMs\":[true],\"forceWidevineL3\":true,\"useAverageBitrate\":true,\"useMedialibAudioTrackRendererForLive\":true,\"useExoPlayerV2\":true,\"logMediaRequestEventsToCsi\":true,\"onesieFixNonZeroStartTimeFormatSelection\":true,\"liveOnlyReadaheadStepSizeChunks\":true,\"liveOnlyBufferHealthHalfLifeSeconds\":true,\"liveOnlyMinBufferHealthRatio\":true,\"liveOnlyMinLatencyToSeekRatio\":true,\"manifestlessPartialChunkStrategy\":true,\"ignoreViewportSizeWhenSticky\":true,\"enableLibvpxFallback\":true,\"disableLibvpxLoopFilter\":true,\"enableVpxMediaView\":true,\"hdrMinScreenBrightness\":true,\"hdrMaxScreenBrightnessThreshold\":true,\"onesieDataSourceAboveCacheDataSource\":true,\"httpNonplayerLoadTimeoutMs\":true,\"numVideoSegmentsPerFetchStrategy\":true,\"maxVideoDurationPerFetchMs\":true,\"maxVideoEstimatedLoadDurationMs\":true,\"estimatedServerClockHalfLife\":true,\"estimatedServerClockStrictOffset\":true,\"minReadAheadMediaTimeMs\":true,\"readAheadGrowthRate\":true,\"useDynamicReadAhead\":true,\"useYtVodMediaSourceForV2\":true,\"enableV2Gapless\":true,\"useLiveHeadTimeMillis\":true,\"allowTrackSelectionWithUpdatedVideoItagsForExoV2\":true,\"maxAllowableTimeBeforeMediaTimeUpdateSec\":true,\"enableDynamicHdr\":true,\"v2PerformEarlyStreamSelection\":true,\"v2UsePlaybackStreamSelectionResult\":true,\"v2MinTimeBetweenAbrReevaluationMs\":true,\"avoidReusePlaybackAcrossLoadvideos\":true,\"enableInfiniteNetworkLoadingRetries\":true,\"reportExoPlayerStateOnTransition\":true,\"manifestlessSequenceMethod\":true,\"useLiveHeadWindow\":true,\"enableDynamicHdrInHardware\":true,\"ultralowAudioQualityBandwidthThresholdBps\":true,\"retryLiveNetNocontentWithDelay\":true,\"ignoreUnneededSeeksToLiveHead\":true,\"adaptiveLiveHeadWindow\":true,\"drmMetricsQoeLoggingFraction\":true,\"liveNetNocontentMaximumErrors\":true,\"waitForDrmLicenseBeforeProcessingAndroidStuckBufferfull\":true,\"slidingPercentileScalar\":true,\"minAdaptiveVideoQuality\":true,\"retryLiveEmptyChunkWithDelay\":true,\"platypusBackBufferDurationMs\":true}}}";
 char LIVE_COMMENTS_JSON_FILTER[] =	"{\"contents\":{\"liveChatRenderer\":{\"actions\":[{\"addChatItemAction\":{\"item\":{\"liveChatTextMessageRenderer\":{\"message\":{\"runs\":[{\"text\":true,\"emoji\":{\"image\":{\"thumbnails\":[{\"url\":true,\"width\":true,\"height\":true}],\"accessibility\":{\"accessibilityData\":{\"label\":true}}},\"isCustomEmoji\":true}}]},\"authorName\":{\"simpleText\":true},\"authorPhoto\":{\"thumbnails\":[{\"url\":true,\"width\":true,\"height\":true}]},\"timestampUsec\":true,\"authorBadges\":[{\"liveChatAuthorBadgeRenderer\":{\"customThumbnail\":{\"thumbnails\":[{\"url\":true,\"width\":true,\"height\":true}]},\"tooltip\":true}}],\"authorExternalChannelId\":true}}}}],\"liveChatCurrentFilter\":true}}}";
 
@@ -497,15 +499,15 @@ int32_t _ftParseSearch(void **ppContext, const char *request, const char *contin
 		return FT_EBADF;
 	}
 
-	/*
-	{
-		ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * 0.5f), buf->m_respDoc.memoryUsage());
+#ifdef FT_DUMP_BUFFER_USAGE
+	ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * 0.5f), buf->m_respDoc.memoryUsage());
+#endif
 
-		std::string res;
-		ArduinoJson::serializeJsonPretty(buf->m_respDoc, res);
-		//ft_printf("[FT] finaldoc: %s\n", res.c_str());
-	}
-	*/
+#ifdef FT_DUMP_PRETTY_RESPONSE
+	std::string res;
+	ArduinoJson::serializeJsonPretty(buf->m_respDoc, res);
+	ft_printf("[FT] finaldoc: %s\n", res.c_str());
+#endif
 
 	const char *treeUpper = "contents";
 	const char *treeLower = "sectionListRenderer";
@@ -654,7 +656,7 @@ int32_t _ftParseVideo(void **ppContext, const char *videoId, uint32_t videoQuali
 		return FT_EBADF;
 	}
 
-	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * 0.4f), respBuf, respBufSz);
+	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * FT_VIDEO_BUFFER_SIZE_COEFF), respBuf, respBufSz);
 	if (!buf)
 	{
 		delete ctx;
@@ -670,15 +672,15 @@ int32_t _ftParseVideo(void **ppContext, const char *videoId, uint32_t videoQuali
 		return FT_EBADF;
 	}
 
-	/*
-	{
-		ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * 0.4f), buf->m_respDoc.memoryUsage());
+#ifdef FT_DUMP_BUFFER_USAGE
+	ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * FT_VIDEO_BUFFER_SIZE_COEFF), buf->m_respDoc.memoryUsage());
+#endif
 
-		//std::string res;
-		//ArduinoJson::serializeJsonPretty(buf->m_respDoc, res);
-		//ft_printf("[FT] finaldoc: %s\n", res.c_str());
-	}
-	*/
+#ifdef FT_DUMP_PRETTY_RESPONSE
+	std::string res;
+	ArduinoJson::serializeJsonPretty(buf->m_respDoc, res);
+	ft_printf("[FT] finaldoc: %s\n", res.c_str());
+#endif
 
 	const char *status = buf->m_respDoc["playabilityStatus"]["status"];
 	if (status[0] != 'O' || status[1] != 'K')
@@ -1056,7 +1058,7 @@ int32_t _ftParseComments(void **ppContext, const char *videoId, const char *cont
 		return FT_EBADF;
 	}
 
-	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * 0.7f), respBuf, respBufSz);
+	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * FT_COMMENTS_BUFFER_SIZE_COEFF), respBuf, respBufSz);
 	if (!buf)
 	{
 		delete ctx;
@@ -1072,15 +1074,16 @@ int32_t _ftParseComments(void **ppContext, const char *videoId, const char *cont
 		return FT_EBADF;
 	}
 
-	/*
-	{
-		ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * 0.7f), buf->m_respDoc.memoryUsage());
+#ifdef FT_DUMP_BUFFER_USAGE
+	ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * FT_COMMENTS_BUFFER_SIZE_COEFF), buf->m_respDoc.memoryUsage());
+#endif
 
-		std::string res;
-		ArduinoJson::serializeJson(buf->m_respDoc, res);
-		//ft_printf("[FT] finaldoc: %s\n", res.c_str());
-	}
-	*/
+#ifdef FT_DUMP_PRETTY_RESPONSE
+	std::string res;
+	ArduinoJson::serializeJson(buf->m_respDoc, res);
+	ft_printf("[FT] finaldoc: %s\n", res.c_str());
+#endif
+
 
 	int32_t commentSectionId = -1;
 	const char *command = "reloadContinuationItemsCommand";
@@ -1198,7 +1201,7 @@ int32_t _ftParseLiveComments(void **ppContext, const char *videoId, uint32_t max
 		return FT_EBADF;
 	}
 
-	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * 0.45f), respBuf, respBufSz);
+	FTContext::Buffer *buf = ctx->CreateBufferEx((uint32_t)((float)respBufSz * FT_LIVE_COMMENTS_BUFFER_SIZE_COEFF), respBuf, respBufSz);
 	if (!buf)
 	{
 		delete ctx;
@@ -1216,15 +1219,17 @@ int32_t _ftParseLiveComments(void **ppContext, const char *videoId, uint32_t max
 		return FT_EBADF;
 	}
 
-	/*
-	{
-		ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * 0.45f), buf->m_respDoc.memoryUsage());
 
-		std::string res;
-		ArduinoJson::serializeJson(buf->m_respDoc, res);
-		ft_printf("[FT] finaldoc: %s\n", res.c_str());
-	}
-	*/
+#ifdef FT_DUMP_BUFFER_USAGE
+	ft_printf("[FT] alloc sz: %u, usage %u\n", (uint32_t)((float)respBufSz * FT_LIVE_COMMENTS_BUFFER_SIZE_COEFF), buf->m_respDoc.memoryUsage());
+#endif
+
+#ifdef FT_DUMP_PRETTY_RESPONSE
+	std::string res;
+	ArduinoJson::serializeJson(buf->m_respDoc, res);
+	ft_printf("[FT] finaldoc: %s\n", res.c_str());
+#endif
+
 	
 	FTItem *oitem = NULL;
 	ret = 0;
